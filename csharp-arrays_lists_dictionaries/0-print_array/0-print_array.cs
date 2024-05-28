@@ -20,11 +20,14 @@ class  Array
                 for (int i = 0; i < size; i++)
                 {
                     myArray[i] = i;
+		    if (i == size - 1) {
+                    Console.Write(myArray[i]);
+                } else {
+                    Console.Write(myArray[i] + " ");
                 }
-
-                Console.WriteLine(string.Join(" ", array));
-                return myarray;
             }
+            Console.WriteLine();
+            return myArray;
         }
     }
-
+}
