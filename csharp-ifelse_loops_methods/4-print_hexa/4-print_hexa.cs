@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 
 class Program 
 {
@@ -6,7 +6,7 @@ class Program
     {
         for(int i = 0; i<99; i++) 
         {
-            Console.Write($"{i} = 0x{i.ToString("x")}\n");
+            Console.Write($"{i} = 0x{i.ToString("x")} \n");
         }
     }
 }
