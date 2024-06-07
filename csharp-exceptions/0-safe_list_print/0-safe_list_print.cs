@@ -1,23 +1,20 @@
-using System;
-using System.Collections.Generic;
-
-public class List
+class List
 {
-    public static int SafePrint( List<int> myList, int n)
+    public static int SafePrint(List<int> myList, int n)
     {
         int count = 0;
         try
         {
-            for(int i=0; i < n; i++)
+            for(int i = 0; i<n; i++)
             {
                 Console.WriteLine(myList[i]);
                 count++;
             }
+            return count;
         }
-        catch(ArgumentOutOfRangeException)
+        catch (ArgumentOutOfRangeException)
         {
-            Console.WriteLine("reached end of the list");
+            return count-1;
         }
-        return count
     }
 }
