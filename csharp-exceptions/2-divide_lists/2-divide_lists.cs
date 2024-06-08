@@ -1,4 +1,5 @@
 using System;
+
 class List
 {
     public static List<int> Divide(List<int> list1, List<int> list2, int listLength)
@@ -16,7 +17,7 @@ class List
             {
                 Console.WriteLine("Out of range");
             }
-            catch (ArgumentOutofRangeException)
+            catch (ArgumentOutOfRangeException)
             {
                 Console.WriteLine("Out of range");
             }
