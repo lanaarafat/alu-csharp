@@ -1,7 +1,11 @@
+using System;
+using System.Collections.Generic;
+
 class List
 {
     public static int SafePrint(List<int> myList, int n)
     {
+        int i;
         int count = 0;
         try
         {
@@ -10,11 +14,11 @@ class List
                 Console.WriteLine(myList[i]);
                 count++;
             }
-            return count;
         }
-        catch (ArgumentOutOfRangeException)
+        catch (Exception)
         {
-            return count-1;
+            Console.Write("");
         }
+        return(count);
     }
 }
