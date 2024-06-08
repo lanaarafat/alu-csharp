@@ -3,18 +3,18 @@ class int
 {
     public static void divide(int a, int b)
     {
-        int count = 0
+        int result = 0;
         try
         {
-            result = a/b;
+            result = a / b;
         }
-        catch(DivideByZeroException)
+        catch (DivideByZeroException)
         {
-            Console.WriteLine("Can't divide by Zero")
+            Console.WriteLine("Can't divide by Zero");
         }
         finally
         {
-            result = a/b;
+            result = a / b;
             Console.WriteLine($"{result}");
         }
     }
