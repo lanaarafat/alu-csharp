@@ -1,20 +1,22 @@
 using System;
+
 class Int
 {
     public static void divide(int a, int b)
     {
-        int result = 0; 
         try
         {
-            result = a / b;
+            int result = a / b;
+            Console.WriteLine($"{a} / {b} = {result}");
         }
         catch (DivideByZeroException)
         {
-            Console.WriteLine("Can't divide by zero");
+            Console.WriteLine("Cannot divide by zero");
+            Console.WriteLine($"{a} / {b} = 0");
         }
         finally
         {
-            Console.WriteLine($"{a} / {b} = {result}");
+            Console.WriteLine("");
         }
     }
 }
