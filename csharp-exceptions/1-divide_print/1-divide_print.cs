@@ -14,8 +14,7 @@ class int
         }
         finally
         {
-            result = a / b;
-            Console.WriteLine($"{result}");
+            Console.WriteLine($"{a} / {b} = {result}");
         }
     }
 }
