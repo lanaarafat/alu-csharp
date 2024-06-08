@@ -1,16 +1,16 @@
 using System;
-class int
+class Int
 {
     public static void divide(int a, int b)
     {
-        int result = 0;
+        int result = 0; 
         try
         {
             result = a / b;
         }
         catch (DivideByZeroException)
         {
-            Console.WriteLine("Can't divide by Zero");
+            Console.WriteLine("Can't divide by zero");
         }
         finally
         {
