@@ -16,7 +16,7 @@ class Int
         }
         finally
         {
-            Console.WriteLine("");
+            Console.Write("");
         }
     }
 }
