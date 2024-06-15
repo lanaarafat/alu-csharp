@@ -4,7 +4,7 @@ namespace Enemies
 {
     class Zombie
     {
-        public int health;
+        private int health;
         public Zombie()
         {
             health = 0;
@@ -15,10 +15,6 @@ namespace Enemies
                 this.health = value;
             else if (value < 0)
                 throw new ArgumentException("Health must be greater than or equal to 0");
-        }
-        public int GetHealth()
-        {
-            return(this.health);
         }
         private string name = "(No name)";
         public string Name
