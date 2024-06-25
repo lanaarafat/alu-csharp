@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "EmLHN0G1CrI=",
+  "success": false,
+  "projectFilePath": "C:\\Users\\lanaa\\OneDrive\\Documents\\GitHub\\alu-csharp\\csharp-tdd\\0-add\\MyMath.Tests\\MyMath.Tests.csproj",
+  "expectedPackageFiles": [],
+  "logs": [
+    {
+      "code": "NU1301",
+      "level": "Error",
+      "message": "Unable to load the service index for source https://api.nuget.org/v3/index.json.",
+      "libraryId": "Microsoft.NET.Test.Sdk"
+    }
+  ]
+}
