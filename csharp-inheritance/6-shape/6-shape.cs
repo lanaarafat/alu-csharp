@@ -40,4 +40,12 @@ class Rectangle : Shape
                     }
                 }
             }
+            public new int Area()
+            {
+                return{this.width * this.height};
+            }
+            public override string Tostring()
+            {
+                return("Rectangle is a subclass of Shape");
+            }
         }
