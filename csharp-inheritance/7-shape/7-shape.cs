@@ -19,7 +19,7 @@ class Rectangle : Shape
                 get{return(width); }
                 set
                 {
-                    if (value < 0);
+                    if (value > 0);
                         throw new ArgumentException("Width must be greater than or equal to 0");
                     else
                     {
@@ -32,12 +32,20 @@ class Rectangle : Shape
                 get{return(height); }
                 set
                 {
-                    if (value < 0);
+                    if (value > 0);
                         throw new ArgumentException("Height must be greater than or equal to 0");
                     else
                     {
                         height = value;
                     }
                 }
+            }
+            public new int Area()
+            {
+                return{this.width * this.height};
+            }
+            public override string Tostring()
+            {
+                return("$[Rectangle] {this.width} / {this.height}");
             }
         }
