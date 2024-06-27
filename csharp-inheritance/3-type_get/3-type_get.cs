@@ -6,14 +6,14 @@ using System.Reflection;
 /// </summary>
 class Obj
 {
-    if (myObj == null)
+    public static void Print(object myObj)
+    {
+        if (myObj == null)
         {
             Console.WriteLine("The object is null.");
             return;
         }
         
-    public static void Print(object myObj)
-    {
         Type t = myObj.GetType();
         TypeInfo myType = t.GetTypeInfo();
         PropertyInfo[] props = t.GetProperties();
