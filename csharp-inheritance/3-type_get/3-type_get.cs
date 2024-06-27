@@ -13,11 +13,11 @@ class Obj
         PropertyInfo[] props = t.GetProperties();
         MethodInfo[] methods = t.GetMethods();
 
-        Console.WriteLine(t.Name + " Properties:");
+        Console.WriteLine(myType.Name + " Properties:");
         foreach (var element in props)
             Console.WriteLine(element.Name);
-            
-        Console.WriteLine(t.Name + " Methods:");
+
+        Console.WriteLine(myType.Name + " Methods:");
         foreach (var element in methods)
             Console.WriteLine(element.Name);
     }
