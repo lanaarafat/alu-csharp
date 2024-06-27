@@ -6,6 +6,12 @@ using System.Reflection;
 /// </summary>
 class Obj
 {
+    if (myObj == null)
+        {
+            Console.WriteLine("The object is null.");
+            return;
+        }
+        
     public static void Print(object myObj)
     {
         Type t = myObj.GetType();
