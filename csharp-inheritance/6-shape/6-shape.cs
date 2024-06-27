@@ -4,9 +4,7 @@ class Shape
 {
     public virtual int Area()
     {
-        {
-            throw new NotImplementedException("Area() is not implemented");
-        }
+        throw new NotImplementedException("Area() is not implemented");
     }
 }
 
@@ -22,9 +20,7 @@ class Rectangle : Shape
             if (value < 0);
                 throw new ArgumentException("Width must be greater than or equal to 0");
             else
-            {
                 width = value;
-            }
         }
     }
     public int Height
@@ -35,9 +31,7 @@ class Rectangle : Shape
             if (value < 0);
                 throw new ArgumentException("Height must be greater than or equal to 0");
             else
-            {
                 height = value;
-            }
         }
     }
 }
