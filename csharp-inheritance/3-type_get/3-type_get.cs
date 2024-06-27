@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Reflection;
 
 /// <summary>
@@ -8,12 +9,6 @@ class Obj
 {
     public static void Print(object myObj)
     {
-        if (myObj == null)
-        {
-            Console.WriteLine("The object is null.");
-            return;
-        }
-        
         Type t = myObj.GetType();
         TypeInfo myType = t.GetTypeInfo();
         PropertyInfo[] props = t.GetProperties();
