@@ -60,10 +60,6 @@ class Square : Rectangle
                 }
         }
     }
-    public override int Area()
-    {
-        return(this.size * this.size);
-    }
     public override string ToString()
     {
         return($"[Square] {this.size} / {this.size}");
