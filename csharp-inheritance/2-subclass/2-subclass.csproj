@@ -1,6 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <DocumentationFile>bin/Debug/netcoreapp2.1/2-subclass.xml</DocumentationFile>
     <OutputType>Exe</OutputType>
     <TargetFramework>net7.0</TargetFramework>
     <RootNamespace>_2_subclass</RootNamespace>
