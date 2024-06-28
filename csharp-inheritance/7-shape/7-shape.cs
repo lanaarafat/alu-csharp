@@ -7,10 +7,6 @@ class Shape
         throw new NotImplementedException("Area() is not implemented");
     }
 }
-
-/// <summary>
-/// This is our class Zombie.
-/// </summary>
 class Rectangle : Shape
 {
     private int width;

@@ -42,3 +42,20 @@ class Rectangle : Shape
         return($"[Rectangle] {this.width} / {this.height}");
     }
 }
+class Square : Rectangle
+{
+    private int size;
+    public int size
+    {
+        get { return(size); }
+        set
+        {
+            if (value < 0)
+                throw new ArgumentException("Size must be greater than or equal to 0");
+            else
+                size = value;
+                Height = value;
+                Width = value;
+        }
+    }
+}
