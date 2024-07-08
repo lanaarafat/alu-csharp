@@ -46,7 +46,7 @@ class VectorMath
             return new double[] {-1};
         }
 
-        double[] dotProduct = 0;
+        double dotProduct = 0;
         for (int i = 0; i < vector1.Length; i++)
         {
             dotProduct += vector1[i] * vector2[i];
