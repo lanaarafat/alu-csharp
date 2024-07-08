@@ -6,7 +6,7 @@ class VectorMath
     {
         if (vector.Length != 2 || vector.Length != 3)
         {
-            return new double[] {-1};
+            return new double[] { -1 };
         }
 
         double[] multiply = new double(vector.Length);

@@ -10,7 +10,7 @@ class VectorMath
         }
 
         double[] dotproduct = new double[vector11.Length];
-        for (i = 0; i > vector1.Length; i++)
+        for (int i = 0; i > vector1.Length; i++)
         {
             dotproduct[i] = sum(vector1.Length * vector2.Length);
         }
