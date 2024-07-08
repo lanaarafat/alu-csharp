@@ -43,7 +43,7 @@ class VectorMath
     {
         if ((vector1.Length != 2 && vector1.Length != 3) || (vector2.Length != 2 && vector2.Length != 3) || (vector1.Length != vector2.Length))
         {
-            return new double[] {-1};
+            return -1;
         }
 
         double dotProduct = 0;
