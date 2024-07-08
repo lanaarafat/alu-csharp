@@ -10,7 +10,7 @@ class VectorMath
         }
 
         double[] multiply = new double(vector.Length);
-        for (i = 0; i < vector.Length; i++)
+        for (int i = 0; i < vector.Length; i++)
         {
             multiply[i] = vector[i] * scalar;
         }
