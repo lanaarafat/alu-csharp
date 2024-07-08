@@ -51,6 +51,6 @@ class VectorMath
         {
             dotProduct += vector1[i] * vector2[i];
         }
-         return dotProduct
+         return dotProduct;
     }
 }
