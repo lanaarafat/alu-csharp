@@ -1,31 +1,31 @@
-using System;
-
-class MatrixMath
+public class MatrixMath
 {
     public static double[,] MultiplyScalar(double[,] matrix, double scalar)
     {
-        int rows1 = matrix1.GetLength(0);
-        int cols1 = matrix1.GetLength(1);
-        int rows2 = matrix2.GetLength(0);
-        int cols2 = matrix2.GetLength(1);
+        // Get the dimensions of the matrix
+        int rows = matrix.GetLength(0);
+        int cols = matrix.GetLength(1);
 
-        // Check if both matrices are either 2D (2x2, 2x3) or 3D (3x3) and of the same size
-        if ((rows1 == 2 && (cols1 == 2 || cols1 == 3) && rows2 == 2 && (cols2 == 2 || cols2 == 3) && rows1 == rows2 && cols1 == cols2) ||
-            (rows1 == 3 && cols1 == 3 && rows2 == 3 && cols2 == 3 && rows1 == rows2 && cols1 == cols2))
+        // Check if the matrix is either 2D (2x2, 2x3) or 3D (3x3)
+        if ((rows == 2 && (cols == 2 || cols == 3)) || (rows == 3 && cols == 3))
         {
             // Initialize the resulting matrix
-            double[,] result = new double[rows1, cols1];
+            double[,] result = new double[rows, cols];
 
-            // Add corresponding elements
-            for (int i = 0; i < rows1; i++)
+            // Multiply each element by the scalar
+            for (int i = 0; i < rows; i++)
             {
-                for (int j = 0; j < cols1; j++)
+                for (int j = 0; j < cols; j++)
                 {
-                    result[i, j] = matrix1[i, j] * scalar;
+                    result[i, j] = matrix[i, j] * scalar;
                 }
             }
 
             return result;
+        }
+        else
+        {
+            return new double[,] { { -1 } };
         }
     }
 }
