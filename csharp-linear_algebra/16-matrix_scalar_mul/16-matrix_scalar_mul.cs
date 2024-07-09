@@ -1,4 +1,5 @@
-public class MatrixMath
+using System;
+class MatrixMath
 {
     public static double[,] MultiplyScalar(double[,] matrix, double scalar)
     {
