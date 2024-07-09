@@ -2,7 +2,7 @@ using System;
 
 class MatrixMath
 {
-    public static double[,] Add(double[,] matrix1, double[,] matrix2)
+    public static double[,] MultiplyScalar(double[,] matrix, double scalar)
     {
         int rows1 = matrix1.GetLength(0);
         int cols1 = matrix1.GetLength(1);
@@ -21,15 +21,11 @@ class MatrixMath
             {
                 for (int j = 0; j < cols1; j++)
                 {
-                    result[i, j] = matrix1[i, j] * matrix2[i, j];
+                    result[i, j] = matrix1[i, j] * scalar;
                 }
             }
 
             return result;
-        }
-        else
-        {
-            return new double[,] { { -1 } };
         }
     }
 }
