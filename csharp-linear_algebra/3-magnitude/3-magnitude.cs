@@ -1,18 +1,21 @@
 using System;
 
-// method that calculates and returns the length of a given vector
+/// <summary>This is the class object.</summary>
 class VectorMath
 {
-    public static double Magnitude( double[] vector)
+    /// <summary>This is the class object.</summary>
+    public static double Magnitude(double[] vector)
     {
-        if (vector.Length != 2 || vector.Length != 3);
-        return -1
+        if (vector.Length < 2 || vector.Length > 3)
+            return(-1);
 
-        double maginitude = 0;
+        double magnitude = 0;
+
         foreach (double element in vector)
         {
-            maginitude += (element * elememt);
+            magnitude += (element * element);
         }
-            return Math.Round(Math.Sqrt(maginitude), 2); // Rounds to the nearest hundrendth
+        magnitude = Math.Round(Math.Sqrt(magnitude), 2);
+        return magnitude;
     }
 }
