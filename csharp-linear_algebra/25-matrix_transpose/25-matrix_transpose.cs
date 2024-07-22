@@ -1,23 +1,26 @@
 using System;
 
-/// <summary>This is the class object.</summary>
 class MatrixMath
 {
-    /// <summary>This is the class object.</summary>
-    public static double[,] Transpose(double[,] matrix)
+public static double[,] Transpose(double[,] matrix)
     {
-        if (matrix.Length == 0)
-            return new double[,] {};
+        int rows = matrix.GetLength(0);
+        int cols = matrix.GetLength(1);
 
-        double[,] transposeMatrix = new double[matrix.GetLength(1), matrix.GetLength(0)];
-
-        for (int row = 0; row < matrix.GetLength(0); row++)
+        if (rows == 0 || cols == 0)
         {
-            for (int col = 0; col < matrix.GetLength(1); col++)
+            return new double[0, 0];
+        }
+        
+        double[,] resultMatrix = new double[cols, rows];
+        for (int i = 0; i < rows; i++)
+        {
+            for (int j = 0; j < cols; j++)
             {
-                transposeMatrix[col, row] = Math.Round(matrix[row, col], 2);
+                resultMatrix[j, i] = matrix[i, j];
             }
         }
-        return transposeMatrix;
+
+        return resultMatrix;
     }
 }

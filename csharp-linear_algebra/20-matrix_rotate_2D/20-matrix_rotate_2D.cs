@@ -1,40 +1,30 @@
-using System;
-
-/// <summary>This is the class object.</summary>
 class MatrixMath
 {
-    /// <summary>This is the class object.</summary>
-    public static double[,] Rotate2D(double[,] matrix, double angle)
-    {
-        double cosinangle = Math.Cos(angle);
-        double sinangle = Math.Sin(angle);
-
-        double[,] rotateMatrix = new double[,] {
-            {cosinangle, sinangle},
-            {-sinangle, cosinangle}
-        };
-
-        if (matrix is double[,] && matrix.GetLength(0) == 2 && matrix.GetLength(1) == 2)
-        {
-            int rowMat1 = matrix.GetLength(0); // Elements of vector == Rows
-            int colMat1 = matrix.GetLength(1); // Vectors / Columns
-            int colMat2 = rotateMatrix.GetLength(1); // Vectors / Columns
-            int rowMat2 = rotateMatrix.GetLength(0); // Elements of vector == Rows
-
-            double[,] mulMatrix = new double[rowMat1, colMat2];
-
-            for (int col = 0; col < colMat1; col++)
-            {
-                for (int row = 0; row < rowMat1; row++)
-                {
-                    for (int rxc = 0; rxc < colMat2; rxc++)
-                    {
-                        mulMatrix[row, rxc] = Math.Round(mulMatrix[row, rxc] + matrix[row, col] * rotateMatrix[col, rxc], 2);
-                    }
-                }
-            }
-            return mulMatrix;
+    public static double[,] Rotate2D(double[,] matrix, double angle){
+        double cos = Math.Cos(angle);
+        double sin = Math.Sin(angle);
+        var rotation = new double[2,2]{{cos, sin}, {-sin, cos}};
+        var res = new double[matrix.GetLength(0),matrix.GetLength(1)];
+        res = Multiply(matrix, rotation);
+        return res;
+    }
+public static double[,] Multiply(double[,] matrix1, double[,] matrix2){
+        if (matrix1.Length == 0 ||
+            matrix2.Length == 0 ||
+            matrix1.GetLength(1) != matrix2.GetLength(0)){
+            return (new double[,]{{-1}});
         }
-        else  { return new double[,]{{-1}}; }
+        var res = new double[matrix1.GetLength(0),matrix2.GetLength(1)];
+        double sum = 0.0;
+        for (int i = 0; i < matrix1.GetLength(0); i++){
+            for (int j = 0; j < matrix2.GetLength(1); j++){
+                sum = 0;
+                for (int k = 0; k < matrix1.GetLength(1); k++){
+                    sum = Math.Round(sum + (matrix1[i,k] * matrix2[k, j]), 2);
+                }
+                res[i, j] = Math.Round(sum, 2);
+            }
+        }
+        return res;  
     }
 }

@@ -1,43 +1,48 @@
-using System;
-
-/// <summary>This is the class object.</summary>
 class MatrixMath
 {
-    /// <summary>This is the class object.</summary>
-    public static double[,] Shear2D(double[,] matrix, char direction, double factor)
-    {
-        int shearX = 0, shearY = 0;
+    public static double[,] Shear2D(double[,] matrix, char direction, double factor){
+        int rows = matrix.GetLength(0);
+        int cols = matrix.GetLength(1);
+        double[,] result = new double[rows, cols];
+        double[,] shearMatrix = new double[rows, cols];
 
-        if (direction == 'x') { shearY = 1; }
-        else if (direction == 'y') { shearX = 1; }
-        else { return new double[,]{{-1}}; }
+        if(rows != 2 || cols != 2){
+            
+            return new double[,]{ {-1}};
+        }
 
-        double[,] shareMatrix = new double[,] {
-            {1, shearX * factor},
-            {shearY * factor, 1}
+
+        if(direction != 'x' && direction != 'y'){
+           
+            return new double[,] { { -1}};
+        }
+        
+        if(direction == 'x'){
+            
+         shearMatrix = new double[,]{ 
+                { 1, 0},
+                { factor, 1}
         };
+        }
 
-        if (matrix is double[,] && matrix.GetLength(1) == 2 && matrix.GetLength(0) == 2) // Square Matrix  2X2.
-        {
-            int rowMat1 = matrix.GetLength(0); // Elements of vector == Rows
-            int colMat1 = matrix.GetLength(1); // Vectors / Columns
-            int colMat2 = shareMatrix.GetLength(1); // Vectors / Columns
-            int rowMat2 = shareMatrix.GetLength(0); // Elements of vector == Rows
+        if(direction == 'y'){
+             shearMatrix = new double[,]{
+                { 1, factor},
+                { 0, 1}
+            };
+        }
 
-            double[,] mulMatrix = new double[rowMat1, colMat2];
+        for(int i = 0; i < rows; i++){
 
-            for (int col = 0; col < colMat1; col++)
-            {
-                for (int row = 0; row < rowMat1; row++)
-                {
-                    for (int rxc = 0; rxc < colMat2; rxc++)
-                    {
-                        mulMatrix[row, rxc] += matrix[row, col] * shareMatrix[col, rxc];
-                    }
+                for(int j = 0; j < cols; j++){
+                
+                  for(int k = 0; k < 2; k++){
+                        result[i,j] += Math.Round(matrix[i, k] * shearMatrix[k, j], 2);
                 }
             }
-            return mulMatrix;
         }
-        else  { return new double[,]{{-1}}; }
+
+        return result;
+
     }
 }
