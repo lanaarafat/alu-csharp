@@ -1,5 +1,15 @@
+﻿
+/// <summary>
+/// This is the class responsible for matrix mathematics
+/// </summary>
 class MatrixMath
 {
+    /// <summary>
+    /// Public method to perform rotation of a matrix.
+    /// </summary>
+    /// <param name="matrix"></param>
+    /// <param name="angle"></param>
+    /// <returns></returns>
     public static double[,] Rotate2D(double[,] matrix, double angle){
         double cos = Math.Cos(angle);
         double sin = Math.Sin(angle);
@@ -8,6 +18,14 @@ class MatrixMath
         res = Multiply(matrix, rotation);
         return res;
     }
+
+
+    /// <summary>
+    /// Public method to perform multiplication between two matrices.
+    /// </summary>
+    /// <param name="matrix1"></param>
+    /// <param name="matrix2"></param>
+    /// <returns></returns>
 public static double[,] Multiply(double[,] matrix1, double[,] matrix2){
         if (matrix1.Length == 0 ||
             matrix2.Length == 0 ||

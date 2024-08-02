@@ -1,17 +1,18 @@
-using System;
-
+﻿
+/// <summary>
+/// This is the class responsible for matrix mathematics
+/// </summary>
 class MatrixMath
 {
+    /// <summary>
+    /// Public method to perform the transpose of a matrix
+    /// </summary>
+    /// <param name="matrix"></param>
+    /// <returns></returns>
 public static double[,] Transpose(double[,] matrix)
     {
         int rows = matrix.GetLength(0);
         int cols = matrix.GetLength(1);
-
-        if (rows == 0 || cols == 0)
-        {
-            return new double[0, 0];
-        }
-        
         double[,] resultMatrix = new double[cols, rows];
         for (int i = 0; i < rows; i++)
         {
