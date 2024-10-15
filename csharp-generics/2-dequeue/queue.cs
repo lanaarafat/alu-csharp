@@ -1,6 +1,6 @@
 using System;
 
-public Queue<T>
+public class Queue<T>
 {
     public Type CheckType()
     {
