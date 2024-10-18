@@ -1,5 +1,8 @@
 using System;
-
+/// <summary>
+/// method
+/// </summary>
+/// <typeparam name="T"></typeparam>
 public class Queue<T>
 {
     /// <summary>
