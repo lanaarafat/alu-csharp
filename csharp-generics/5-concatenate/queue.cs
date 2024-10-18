@@ -1,154 +1,140 @@
 /// <summary>
-/// Concatenates all values in the queue if the queue type is string or char.
+/// Generic class Queue
 /// </summary>
-/// <returns>
-/// Returns a concatenated string if the queue type is string or char, otherwise returns null.
-/// If the queue is empty, prints a message and returns null.
-/// If the queue type is neither string nor char, prints a message and returns null.
-/// </returns>
+/// <typeparam name="T"></typeparam>
+
 public class Queue<T>
 {
     /// <summary>
-    /// This is Queue empty class.
+    /// Head of the Queue
     /// </summary>
-    public Type CheckType()
-    {
-        return(typeof(T));
-    }
-
+    public Node? head;
     /// <summary>
-    /// This is Queue empty class.
+    /// Tail of the Queue
+    /// </summary>
+    public Node? tail;
+    /// <summary>
+    /// Count of the Nodes
+    /// </summary>
+    public int count;
+    /// <summary>
+    /// The Node class
     /// </summary>
     public class Node
     {
-        /// <summary>This is Queue empty class.</summary>
-        public T value = default(T);
-        /// <summary>This is Queue empty class.</summary>
-        public Node next = null;
-
-        /// <summary>This is Queue empty class.</summary>
-        public Node(T var)
-        {
-            value = var;
+        /// <summary>
+        /// Value of a node
+        /// </summary>
+        public T? value = default;
+        /// <summary>
+        /// Next pointer of a node
+        /// </summary>
+        public Node? next = null;
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="v"></param>
+        public Node(T v) {
+            value = v;
+            next = null;
         }
+        
+    }
+    /// <summary>
+    /// Method that returns the type of the Queue
+    /// </summary>
+    /// <returns></returns>
+    public Type CheckType()
+    {
+        return typeof(T);
     }
 
-    /// <summary>This is Queue empty class.</summary>
-    public Node head = null;
-    /// <summary>This is Queue empty class.</summary>
-    public Node tail = null;
-    /// <summary>This is Queue empty class.</summary>
-    public int count;
-
-    /// <summary>This is Queue empty class.</summary>
-    public void Enqueue(T value)
-    {
-        Node newNode = new Node(value);
-        if (head == null)
-        {
+    /// <summary>
+    /// Method that adds an item to the queue
+    /// </summary>
+    /// <param name="value"></param>
+    public void Enqueue(T? value) {
+        Node newNode = new Node(value!);
+        if(head == null) {
             head = newNode;
             tail = newNode;
-        }
-        else
-        {
-            tail.next = newNode;
+        }else {
+            tail!.next = newNode;
             tail = newNode;
         }
         count++;
     }
-    /// <summary>This is Queue empty class.</summary>
-    public T Dequeue()
-    {
-        if (head == null)
-        {
+    /// <summary>
+    /// A method to remove the first element in the queue
+    /// </summary>
+    /// <returns></returns>
+    public T Dequeue() {
+        if (head == null) {
             Console.WriteLine("Queue is empty");
-            return(default(T));
+            return default(T)!;
+        } else {
+            Node current = head;
+            head = current.next;
+            count--;
+            return current!.value!;
         }
-
-        Node tmp = head;
-        head = head.next;
-        count--;
-        return(tmp.value);
     }
-
-    /// <summary>This is Queue empty class.</summary>
-    public T Peek()
-    {
-        if (head == null)
-        {
+    /// <summary>
+    /// A method to return the first element in th queue
+    /// </summary>
+    /// <returns></returns>
+    public T Peek() {
+        if (head ==  null) {
             Console.WriteLine("Queue is empty");
-            return(default(T));
+            return default(T)!;
+        } else {
+            return head.value!;
         }
-
-        return(head.value);
     }
-    /// <summary>This is Queue empty class.</summary>
-    public void Print()
-    {
-        if (head == null)
+    /// <summary>
+    /// A method to Print the elements
+    /// </summary>
+    public void Print() {
+        if (head == null) {
             Console.WriteLine("Queue is empty");
-        else
-        {
-            Node tmp = head;
-            while (tmp != null)
-            {
-                Console.WriteLine(tmp.value);
-                tmp = tmp.next;
+        } else {
+            do {
+                Console.WriteLine(head.value);
+                head = head.next;
+            }
+            while(head!.next != null);
+            Console.WriteLine(head.value);
+        }
+    }
+    /// <summary>
+    /// Method to concatenate the contents of a queue
+    /// </summary>
+    /// <returns></returns>
+    public string Concatenate() {
+        if (head == null) {
+            Console.WriteLine("Queue is empty");
+            return null!;
+        } else {
+            if (CheckType() == typeof(string) || CheckType() == typeof(char)) {
+                string newString = "";
+                do {
+                    newString += head.value + " ";
+                    head = head.next;
+                }
+                while(head!.next != null);
+                newString +=head.value;
+                return newString;
+            }else {
+                Console.WriteLine("Concatenate() is for a queue of Strings or Chars only.");
+                return null!;
             }
         }
     }
-    public T Concatenate()
-    {
-        // Check if the queue is empty
-        if (head == null)
-        {
-            // Print message if queue is empty and return null
-            Console.WriteLine("Queue is empty");
-            return default(T);  // Return null for reference types like String or Char.
-        }
-
-        // Check if the queue is of type string
-        if (CheckType() == typeof(string))
-        {
-            // Initialize a temporary node to traverse the queue
-            Node tmp = head;
-            string result = "";
-
-            // Loop through all nodes in the queue and concatenate the values
-            while (tmp != null)
-            {
-                result += tmp.value;  // Append the value of each node to the result string
-                tmp = tmp.next;  // Move to the next node
-            }
-
-            // Return the concatenated string
-            return (T)(object)result;  
-        }
-
-        // Check if the queue is of type char
-        else if (CheckType() == typeof(char))
-        {
-            // Initialize a temporary node to traverse the queue
-            Node tmp = head;
-            string result = "";
-
-            // Loop through all nodes in the queue and concatenate the char values
-            while (tmp != null)
-            {
-                result += tmp.value.ToString();  // Append each char value to the result string
-                tmp = tmp.next;  // Move to the next node
-            }
-
-            // Return the concatenated chars as a string
-            return (T)(object)result;  
-        }
-
-        // If the queue type is neither string nor char
-        else
-        {
-            // Print message indicating invalid type for concatenation and return null
-            Console.WriteLine("Concatenate() is for a queue of Strings or Chars only.");
-            return default(T);  // Return null
-        }
+    /// <summary>
+    /// Method to count all the nodes of a queue
+    /// </summary>
+    /// <returns></returns>
+    public int Count() {
+        return count;
     }
 }
