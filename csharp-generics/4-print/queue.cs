@@ -1,90 +1,116 @@
-using System;
+/// <summary>
+/// Generic class Queue
+/// </summary>
+/// <typeparam name="T"></typeparam>
 
 public class Queue<T>
 {
-    public Type CheckType()
-    {
-        return (typeof(T));
-    }
-
+    /// <summary>
+    /// Head of the Queue
+    /// </summary>
+    public Node? head;
+    /// <summary>
+    /// Tail of the Queue
+    /// </summary>
+    public Node? tail;
+    /// <summary>
+    /// Count of the Nodes
+    /// </summary>
+    public int count;
+    /// <summary>
+    /// The Node class
+    /// </summary>
     public class Node
     {
-        public T value = null;
-
-        public Node next = null;
-
-        public Node(T var)
-        {
-            value = var;
+        /// <summary>
+        /// Value of a node
+        /// </summary>
+        public T? value = default;
+        /// <summary>
+        /// Next pointer of a node
+        /// </summary>
+        public Node? next = null;
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="v"></param>
+        public Node(T v) {
+            value = v;
+            next = null;
         }
+        
+    }
+    /// <summary>
+    /// Method that returns the type of the Queue
+    /// </summary>
+    /// <returns></returns>
+    public Type CheckType()
+    {
+        return typeof(T);
     }
 
-    public Node head;
-    public Node tail;
-    public int count;
-
-    public void Enqueue(T var)
-    {
-        Node newNode = new Node(var);
-
-        if (head == null)
-        {
+    /// <summary>
+    /// Method that adds an item to the queue
+    /// </summary>
+    /// <param name="value"></param>
+    public void Enqueue(T? value) {
+        Node newNode = new Node(value!);
+        if(head == null) {
             head = newNode;
             tail = newNode;
-
-        }
-
-        else
-        {
-            tail.next = newNode;
+        }else {
+            tail!.next = newNode;
             tail = newNode;
         }
         count++;
     }
-
-    public void Dequeue()
-    {
-        if (head == null)
-        {
+    /// <summary>
+    /// A method to remove the first element in the queue
+    /// </summary>
+    /// <returns></returns>
+    public T Dequeue() {
+        if (head == null) {
             Console.WriteLine("Queue is empty");
-            return(default(T));
-
-            Node value = head.value;
-            head = head.next;
+            return default(T)!;
+        } else {
+            Node current = head;
+            head = current.next;
             count--;
-            return value;
+            return current!.value!;
         }
     }
-
-    public void peek()
-    {
-        if (head == null)
-        {
+    /// <summary>
+    /// A method to return the first element in th queue
+    /// </summary>
+    /// <returns></returns>
+    public T Peek() {
+        if (head ==  null) {
             Console.WriteLine("Queue is empty");
-            return(default(T));
+            return default(T)!;
+        } else {
+            return head.value!;
         }
-        return(head.value);
     }
-
-    public void Print()
-    {
-        if (head == null)
-        {
+    /// <summary>
+    /// A method to Print the elements
+    /// </summary>
+    public void Print() {
+        if (head == null) {
             Console.WriteLine("Queue is empty");
-            return(default(T));
+        } else {
+            do {
+                Console.WriteLine(head.value);
+                head = head.next;
+            }
+            while(head!.next != null);
+            Console.WriteLine(head.value);
         }
-
-        else
-        {
-            Node value = head;
-        }
-
     }
-
-    public int Count()
-    {
-        return(count);
+    /// <summary>
+    /// Method to count all the nodes of a queue
+    /// </summary>
+    /// <returns></returns>
+    public int Count() {
+        return count;
     }
-
-    
 }

@@ -1,39 +1,51 @@
 using System;
 
+/// <summary>
+/// This is Queue.
+/// </summary>
 public class Queue<T>
 {
+    /// <summary>
+    /// This is Queue empty class.
+    /// </summary>
     public Type CheckType()
     {
-        return (typeof(T));
+        return(typeof(T));
     }
 
+    /// <summary>
+    /// This is Queue empty class.
+    /// </summary>
     public class Node
     {
-        public T value = null;
-
+        /// <summary>This is Queue empty class.</summary>
+        public T value = default(T);
+        /// <summary>This is Queue empty class.</summary>
         public Node next = null;
 
+        /// <summary>This is Queue empty class.</summary>
         public Node(T var)
         {
             value = var;
         }
     }
 
-    public Node head;
-    public Node tail;
+    /// <summary>This is Queue empty class.</summary>
+    public Node head = null;
+    /// <summary>This is Queue empty class.</summary>
+    public Node tail = null;
+    /// <summary>This is Queue empty class.</summary>
     public int count;
 
-    public void Enqueue(T var)
+    /// <summary>This is Queue empty class.</summary>
+    public void Enqueue(T value)
     {
-        Node newNode = new Node(var);
-
+        Node newNode = new Node(value);
         if (head == null)
         {
             head = newNode;
             tail = newNode;
-
         }
-
         else
         {
             tail.next = newNode;
@@ -41,65 +53,94 @@ public class Queue<T>
         }
         count++;
     }
-
-    public void Dequeue()
+    /// <summary>This is Queue empty class.</summary>
+    public T Dequeue()
     {
         if (head == null)
         {
             Console.WriteLine("Queue is empty");
             return(default(T));
-
-            Node value = head.value;
-            head = head.next;
-            count--;
-            return value;
         }
+
+        Node tmp = head;
+        head = head.next;
+        count--;
+        return(tmp.value);
     }
 
-    public void peek()
+    /// <summary>This is Queue empty class.</summary>
+    public T Peek()
     {
         if (head == null)
         {
             Console.WriteLine("Queue is empty");
             return(default(T));
         }
+
         return(head.value);
     }
-
+    /// <summary>This is Queue empty class.</summary>
     public void Print()
     {
         if (head == null)
+            Console.WriteLine("Queue is empty");
+        else
+        {
+            Node tmp = head;
+            while (tmp != null)
+            {
+                Console.WriteLine(tmp.value);
+                tmp = tmp.next;
+            }
+        }
+    }
+
+    /// <summary>This is Queue empty class.</summary>
+    public T Concatenate()
+    {
+        if (head == null)
         {
             Console.WriteLine("Queue is empty");
-            return(default(T));
+            return default(T);
+        }
+
+        if (CheckType() == typeof(String))
+        {
+            Node tmp = head;
+            string str = "";
+            while (tmp != null)
+            {
+                str += tmp.value;
+                if (tmp.next != null)
+                    str += " ";
+                tmp = tmp.next;
+            }
+            Console.Write(str);
+        }
+
+        else if (CheckType() == typeof(Char))
+        {
+            Node tmp = head;
+            string chara = "";
+            while (tmp != null)
+            {
+                chara += tmp.value;
+                tmp = tmp.next;
+            }
+            Console.Write(chara);
         }
 
         else
         {
-            Node value = head;
+            Console.WriteLine("Concatenate() is for a queue of Strings or Chars only");
         }
 
+        return(default(T));
     }
 
-    public void Concatenate()
-    {
-        if (head == null)
-        {
-            Console.WriteLine("Queue is empty");
-            return(null);
-        }
-
-        if (CheckType() != typeof(String) || CheckType() != typeof(Char))
-        {
-            Console.WriteLine("Concatenate() is for a queue of Strings or Chars only.");
-            return(null);
-        }
-    }
-
+    /// <summary>This is Queue empty class.</summary>
     public int Count()
     {
         return(count);
     }
-
-    
 }

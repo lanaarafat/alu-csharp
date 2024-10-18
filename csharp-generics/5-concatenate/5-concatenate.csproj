@@ -1,10 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
     <RootNamespace>_5_concatenate</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <DocumentationFile>bin\$(Configuration)\netcoreapp2.1\$(AssemblyName).xml</DocumentationFile>
   </PropertyGroup>
 
 </Project>
