@@ -1,7 +1,14 @@
 using System;
-
+/// <summary>
+/// xml
+/// </summary>
+/// <typeparam name="T"></typeparam>
 public class Queue<T>
 {
+    /// <summary>
+    /// xml
+    /// </summary>
+    /// <returns></returns>
     public Type CheckType()
     {
         return(typeof(T));
