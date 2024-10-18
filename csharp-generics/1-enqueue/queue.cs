@@ -1,46 +1,51 @@
 using System;
+
 /// <summary>
-/// xml
+/// This is Queue.
 /// </summary>
-/// <typeparam name="T"></typeparam>
 public class Queue<T>
 {
     /// <summary>
-    /// xml
+    /// This is Queue empty class.
     /// </summary>
-    /// <returns></returns>
     public Type CheckType()
     {
         return(typeof(T));
     }
 
+    /// <summary>
+    /// This is Queue empty class.
+    /// </summary>
     public class Node
     {
-        public T value = null;
-
+        /// <summary>This is Queue empty class.</summary>
+        public T value = default(T);
+        /// <summary>This is Queue empty class.</summary>
         public Node next = null;
 
+        /// <summary>This is Queue empty class.</summary>
         public Node(T var)
         {
             value = var;
         }
     }
 
-    public Node head;
-    public Node tail;
+    /// <summary>This is Queue empty class.</summary>
+    public Node head = null;
+    /// <summary>This is Queue empty class.</summary>
+    public Node tail = null;
+    /// <summary>This is Queue empty class.</summary>
     public int count;
 
-    public void Enqueue(T var)
+    /// <summary>This is Queue empty class.</summary>
+    public void Enqueue(T value)
     {
-        Node newNode = new Node(var);
-
+        Node newNode = new Node(value);
         if (head == null)
         {
             head = newNode;
             tail = newNode;
-
         }
-
         else
         {
             tail.next = newNode;
@@ -49,6 +54,7 @@ public class Queue<T>
         count++;
     }
 
+    /// <summary>This is Queue empty class.</summary>
     public int Count()
     {
         return(count);
