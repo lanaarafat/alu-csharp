@@ -1,20 +1,21 @@
 using System;
-/// <summary>
-/// abstract class
-/// </summary>
 
+/// <summary>
+/// Base abstract class.
+/// </summary>
 public abstract class Base
 {
     /// <summary>
-    /// abstract class
+    /// Name of the object.
     /// </summary>
     public string name;
+
     /// <summary>
-    /// empty
+    /// Provides a string representation of the object.
     /// </summary>
-    /// <returns></returns>
-    public override string Tostring()
+    /// <returns>String in the format: "name is a [type]"</returns>
+    public override string ToString()
     {
-        return($"{name} is a {this.GetType()}");
+        return $"{name} is a {this.GetType()}";
     }
 }
