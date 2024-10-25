@@ -75,9 +75,12 @@ public class Door : Base, IInteractive
     /// <param name="name"></param>
     public Door(string name = "Door")
     {
-        /// <summary>ToString</summary>
         this.name = name;
     }
+
+    /// <summary>
+    /// Interacts with the Door, attempting to open it.
+    /// </summary>
     public void Interact()
     {
         /// <summary>ToString</summary>
