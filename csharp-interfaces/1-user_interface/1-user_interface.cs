@@ -49,9 +49,9 @@ public abstract class Base
 public class TestObject : Base, IInteractive, IBreakable, ICollectable
 {
     /// <summary>Interact</summary>
-    public int durability{get => throw new NotImplementableExpectation() ; set=> throw new NotImplementableException(); }
+    public int durability{get; set;}
     /// <summary>Interact</summary>
-    public bool isCollectable{get => throw new NotImplementableExpectation() ; set=> throw new NotImplementableException(); }
+    public bool isCollectable{get; set; }
     /// <summary>Interact</summary>
     public void Interact()
     {
