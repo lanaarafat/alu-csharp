@@ -1,6 +1,7 @@
 using System;
 using System.Collections
 using System.Collections.Generic;
+using System.Dynamic;
 
 /// <summary>
 /// Base abstract class.
@@ -193,31 +194,33 @@ public class Key : Base, ICollectable
 /// </summary>
 public class Objs<T> : IEnumerable<T>
 {
-    // List to store objects of type T
+    // objects list
     private List<T> objects = new List<T>();
 
     /// <summary>
-    /// Adds an object of type T to the collection.
+    /// add
     /// </summary>
-    /// <param name="obj">The object to add.</param>
+    /// <param name="obj"></param>
     public void Add(T obj)
     {
         objects.Add(obj);
     }
 
     /// <summary>
-    /// Returns an enumerator that iterates through the collection.
+    /// IEnumerator
     /// </summary>
-    /// <returns>An IEnumerator of type T.</returns>
+    /// <returns></returns>
+
     public IEnumerator<T> GetEnumerator()
     {
         return objects.GetEnumerator();
     }
 
     /// <summary>
-    /// Returns an enumerator that iterates through the collection (non-generic).
+    /// IEnumerator
     /// </summary>
-    /// <returns>An IEnumerator.</returns>
+    /// <returns></returns>
+
     IEnumerator IEnumerable.GetEnumerator()
     {
         return this.GetEnumerator();
