@@ -4,7 +4,7 @@ using System;
 public class Player
 {
     /// <summary>This is name string variable.</summary>
-    public string ? name;
+    public string name;
 
     /// <summary>This is maxHP float variable.</summary>
     public float maxHp;
