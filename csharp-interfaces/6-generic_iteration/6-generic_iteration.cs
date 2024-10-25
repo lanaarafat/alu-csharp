@@ -193,7 +193,7 @@ public class Key : Base, ICollectable
 
 public class Objs<T> : IEnumerable<T>
 {
-    // List to store objects of type T
+    // Internal list to store objects of type T
     private List<T> objects = new List<T>();
 
     /// <summary>
@@ -202,7 +202,7 @@ public class Objs<T> : IEnumerable<T>
     /// <param name="obj">The object to add.</param>
     public void Add(T obj)
     {
-        objects.Add(obj); // corrected from _objects to objects
+        objects.Add(obj);
     }
 
     /// <summary>
@@ -211,7 +211,7 @@ public class Objs<T> : IEnumerable<T>
     /// <returns>An IEnumerator of type T.</returns>
     public IEnumerator<T> GetEnumerator()
     {
-        return objects.GetEnumerator(); // corrected from _objects to objects
+        return objects.GetEnumerator();
     }
 
     /// <summary>
