@@ -193,31 +193,31 @@ public class Key : Base, ICollectable
 
 public class Objs<T> : IEnumerable<T>
 {
-    // objects
+    // List to store objects of type T
     private List<T> objects = new List<T>();
 
     /// <summary>
-    /// add
+    /// Adds an object of type T to the collection.
     /// </summary>
-    /// <param name="obj"></param>
+    /// <param name="obj">The object to add.</param>
     public void Add(T obj)
     {
-        objects.Add(obj);
+        objects.Add(obj); // corrected from _objects to objects
     }
 
     /// <summary>
-    /// IEnumerator
+    /// Returns an enumerator that iterates through the collection.
     /// </summary>
-    /// <returns></returns>
-
+    /// <returns>An IEnumerator of type T.</returns>
     public IEnumerator<T> GetEnumerator()
     {
-        return objects.GetEnumerator();
+        return objects.GetEnumerator(); // corrected from _objects to objects
     }
+
     /// <summary>
-    /// enumerator
+    /// Returns an enumerator that iterates through the collection (non-generic).
     /// </summary>
-    /// <returns></returns>
+    /// <returns>An IEnumerator.</returns>
     IEnumerator IEnumerable.GetEnumerator()
     {
         return this.GetEnumerator();
