@@ -187,13 +187,11 @@ public class Key : Base, ICollectable
     }
 }
 /// <summary>
-/// Objs
+/// Generic class that creates a collection of type T objects.
 /// </summary>
-/// <typeparam name="T"></typeparam>
-
 public class Objs<T> : IEnumerable<T>
 {
-    // Internal list to store objects of type T
+    // List to store objects of type T
     private List<T> objects = new List<T>();
 
     /// <summary>
@@ -223,4 +221,3 @@ public class Objs<T> : IEnumerable<T>
         return this.GetEnumerator();
     }
 }
-
