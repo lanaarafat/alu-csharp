@@ -36,3 +36,4 @@ public class Player
         Console.WriteLine($"{name} has {hp} / {maxHp} health");
     }
 }
+
