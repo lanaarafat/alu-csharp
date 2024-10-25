@@ -49,25 +49,29 @@ public abstract class Base
 public class TestObject : Base, IInteractive, IBreakable, ICollectable
 {
     /// <summary>Interact</summary>
-    public int durability{get; set;}
+    public int durability
+    [
+        get {return durability;}
+        set {durability = value;}
+    ]
     /// <summary>Interact</summary>
-    public bool isCollectable{get; set; }
-    /// <summary>Interact</summary>
+    public bool isCollectable
+    [
+        get {return isCollected;}
+        set {isCollected = value;}
+    ]
     public void Interact()
     {
-        /// <summary>Interact</summary>
-        throw NotImplementedException();
+        
     }
 
     public void Break()
     {
-        /// <summary>Interact</summary>
-        throw NotImplementedException();
+
     }
 
     public void Collect()
     {
-        /// <summary>Interact</summary>
-        throw NotImplementedException();
+
     }
 }
