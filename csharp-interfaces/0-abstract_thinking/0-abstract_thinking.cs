@@ -8,7 +8,7 @@ public abstract class Base
     /// <summary>
     /// Name of the object.
     /// </summary>
-    public string name {get; set;}
+    public string ? name {get; set;}
 
     /// <summary>
     /// Provides a string representation of the object.
