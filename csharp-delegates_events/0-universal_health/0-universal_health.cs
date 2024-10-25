@@ -33,6 +33,6 @@ public class Player
     /// <summary>This is PrintHealth Method.</summary>
     public void PrintHealth()
     {
-        Console.WriteLine($"{name} has {hp} / {maxHp} health.Name");
+        Console.WriteLine($"{name} has {hp} / {maxHp} health");
     }
 }
