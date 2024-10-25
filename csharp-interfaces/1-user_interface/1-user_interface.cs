@@ -8,7 +8,7 @@ public abstract class Base
     /// <summary>
     /// Name of the object.
     /// </summary>
-    public string ? name {get; set;}
+    public string? name { get; set; }
 
     /// <summary>
     /// Provides a string representation of the object.
@@ -18,69 +18,90 @@ public abstract class Base
     {
         return $"{name} is a {this.GetType().Name}";
     }
-    public interface IInteractive
-    {
-        /// <summary>
-        /// IInteractive
-        /// </summary>
-        void Interact();
-    }
-
-    public interface IBreakable
-    {
-        /// <summary>
-        /// IBreakable
-        /// </summary>
-        int durability{get; set; }
-        void Break();
-
-    }
-
-    public interface ICollectable
-    {
-        /// <summary>
-        /// ICollectable
-        /// </summary>
-        bool isCollectable{get; set; }
-        void Collect();
-    }
 }
 
-public class TestObject : Base, IInteractive, IBreakable, ICollectable {
+/// <summary>
+/// IInteractive interface.
+/// </summary>
+public interface IInteractive
+{
     /// <summary>
-    /// Interact implementation
+    /// Interact with the object.
     /// </summary>
-    public void Interact() {
+    void Interact();
+}
 
+/// <summary>
+/// IBreakable interface.
+/// </summary>
+public interface IBreakable
+{
+    /// <summary>
+    /// Gets or sets the durability of the object.
+    /// </summary>
+    int durability { get; set; }
+
+    /// <summary>
+    /// Break the object.
+    /// </summary>
+    void Break();
+}
+
+/// <summary>
+/// ICollectable interface.
+/// </summary>
+public interface ICollectable
+{
+    /// <summary>
+    /// Gets or sets whether the object is collected.
+    /// </summary>
+    bool isCollected { get; set; }
+
+    /// <summary>
+    /// Collect the object.
+    /// </summary>
+    void Collect();
+}
+
+/// <summary>
+/// TestObject class inheriting from Base and implementing IInteractive, IBreakable, and ICollectable.
+/// </summary>
+public class TestObject : Base, IInteractive, IBreakable, ICollectable
+{
+    /// <summary>
+    /// Durability of the object.
+    /// </summary>
+    public int durability { get; set; } // Implemented as a property.
+
+    /// <summary>
+    /// Indicates if the object is collected.
+    /// </summary>
+    public bool isCollected { get; set; } // Implemented as a property.
+
+    /// <summary>
+    /// Interact with the TestObject.
+    /// </summary>
+    public void Interact()
+    {
+        // Not fully implemented for this task.
+        throw new NotImplementedException();
     }
 
     /// <summary>
-    /// Interact implementation
+    /// Break the TestObject.
     /// </summary>
-    public void Break() {
-
+    public void Break()
+    {
+        // Not fully implemented for this task.
+        throw new NotImplementedException();
     }
 
     /// <summary>
-    /// Durability implementation
+    /// Collect the TestObject.
     /// </summary>
-    public int durability {
-        get {return durability;}
-        set {durability = value;}
-    }
-
-    /// <summary>
-    /// Collect implementation
-    /// </summary>
-    public void Collect() {
-
-    }
-
-    /// <summary>
-    /// Collect Implementation
-    /// </summary>
-    public bool isCollected {
-        get {return isCollected;}
-        set {isCollected = value;}
+    public void Collect()
+    {
+        // Not fully implemented for this task.
+        throw new NotImplementedException();
     }
 }
