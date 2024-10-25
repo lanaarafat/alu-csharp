@@ -150,41 +150,39 @@ public class Decoration : Base, IInteractive, IBreakable
     }
 }
 
-/// <summary>
-/// key
-/// </summary>
 public class Key : Base, ICollectable
 {
     /// <summary>
-    /// iscollected
+    /// Indicates whether the key has been collected.
     /// </summary>
     public bool isCollected { get; set; }
 
     /// <summary>
-    /// key
+    /// Initializes a new instance of the Key class.
     /// </summary>
-
-    public  Key(string name = "Key", bool isCollectable = false)
+    /// <param name="name">The name of the key.</param>
+    /// <param name="isCollected">Indicates whether the key is collected.</param>
+    public Key(string name = "Key", bool isCollected = false)
     {
         this.name = name;
-        this isCollectable = isCollectable;
+        this.isCollected = isCollected;
     }
 
     /// <summary>
-    /// collect
+    /// Collects the key if it hasn't been collected yet.
     /// </summary>
-
     public void Collect()
     {
         if (!isCollected)
         {
             isCollected = true;
-            Console.WriteLine($"You pick the {name}.");
+            Console.WriteLine($"You pick up the {name}.");
         }
-
         else
         {
-            Console.WriteLine($"You already picked up the {name}.");
+            Console.WriteLine($"You have already picked up the {name}.");
         }
     }
 }
+
+
