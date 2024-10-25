@@ -32,7 +32,7 @@ public abstract class Base
         /// <summary>
         /// IBreakable
         /// </summary>
-        int durability{get; set; };
+        int durability { get; set; }
         void Break();
 
     }
@@ -42,7 +42,7 @@ public abstract class Base
         /// <summary>
         /// ICollectable
         /// </summary>
-        bool isCollectable{get; set; };
+        bool isCollectable { get; set; };
         void Collect();
     }
 }
