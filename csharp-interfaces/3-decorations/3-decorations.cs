@@ -1,69 +1,91 @@
 using System;
-/// <summary>
-/// abstract class
-/// </summary>
 
+/// <summary>
+/// Base abstract class.
+/// </summary>
 public abstract class Base
 {
     /// <summary>
-    /// abstract class
+    /// Name of the object.
     /// </summary>
-    public string name;
+    public string? name { get; set; }
+
     /// <summary>
-    /// empty
+    /// Provides a string representation of the object.
     /// </summary>
-    /// <returns></returns>
-    public override string Tostring()
+    /// <returns>String in the format: "name is a [type]"</returns>
+    public override string ToString()
     {
-        /// <summary>ToString</summary>
-        return($"{name} is a {this.GetType()}");
-    }
-
-    public interface IInteractive
-    {
-        /// <summary>
-        /// IInteractive
-        /// </summary>
-        void Interact();
-    }
-
-    public interface IBreakable
-    {
-        /// <summary>
-        /// IBreakable
-        /// </summary>
-        int durability{get; set; };
-        void Break();
-
-    }
-
-    public interface ICollectable
-    {
-        /// <summary>
-        /// ICollectable
-        /// </summary>
-        bool isCollectable{get; set; };
-        void Collect();
+        return $"{name} is a {this.GetType().Name}";
     }
 }
 
+/// <summary>
+/// IInteractive interface.
+/// </summary>
+public interface IInteractive
+{
+    /// <summary>
+    /// Interact with the object.
+    /// </summary>
+    void Interact();
+}
+
+/// <summary>
+/// IBreakable interface.
+/// </summary>
+public interface IBreakable
+{
+    /// <summary>
+    /// Gets or sets the durability of the object.
+    /// </summary>
+    int durability { get; set; }
+
+    /// <summary>
+    /// Break the object.
+    /// </summary>
+    void Break();
+}
+
+/// <summary>
+/// ICollectable interface.
+/// </summary>
+public interface ICollectable
+{
+    /// <summary>
+    /// Gets or sets whether the object is collected.
+    /// </summary>
+    bool isCollected { get; set; }
+
+    /// <summary>
+    /// Collect the object.
+    /// </summary>
+    void Collect();
+}
+
+/// <summary>
+/// Represents a Door that can be interacted with.
+/// </summary>
 public class Door : Base, IInteractive
 {
     /// <summary>
-    /// class Door
+    /// Initializes a new instance of the Door class.
     /// </summary>
-    /// <param name="name"></param>
+    /// <param name="name">The name of the door.</param>
     public Door(string name = "Door")
     {
-        /// <summary>ToString</summary>
         this.name = name;
     }
+
+    /// <summary>
+    /// Interacts with the Door, attempting to open it.
+    /// </summary>
     public void Interact()
     {
-        /// <summary>ToString</summary>
         Console.WriteLine($"You try to open the {name}. It's locked.");
     }
 }
+
 
 public class Decoration : Base, IInteractive, IBreakable
 {
