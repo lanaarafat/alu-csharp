@@ -158,7 +158,7 @@ public class Key : Base, ICollectable
     /// <summary>
     /// iscollected
     /// </summary>
-    public bool isCollected{get; set;}
+    public bool isCollected { get; set; }
 
     /// <summary>
     /// key
@@ -176,13 +176,13 @@ public class Key : Base, ICollectable
 
     public void Collect()
     {
-        if (isCollected == false)
+        if (!isCollected)
         {
             isCollected = true;
             Console.WriteLine($"You pick the {name}.");
         }
 
-        else (isCollected == true)
+        else
         {
             Console.WriteLine($"You already picked up the {name}.");
         }
