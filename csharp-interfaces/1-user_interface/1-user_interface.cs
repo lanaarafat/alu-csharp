@@ -1,24 +1,23 @@
 using System;
-/// <summary>
-/// abstract class
-/// </summary>
 
+/// <summary>
+/// Base abstract class.
+/// </summary>
 public abstract class Base
 {
     /// <summary>
-    /// abstract class
+    /// Name of the object.
     /// </summary>
-    public string name;
-    /// <summary>
-    /// empty
-    /// </summary>
-    /// <returns></returns>
-    public override string Tostring()
-    {
-        /// <summary>ToString</summary>
-        return($"{name} is a {this.GetType()}");
-    }
+    public string ? name {get; set;}
 
+    /// <summary>
+    /// Provides a string representation of the object.
+    /// </summary>
+    /// <returns>String in the format: "name is a [type]"</returns>
+    public override string ToString()
+    {
+        return $"{name} is a {this.GetType().Name}";
+    }
     public interface IInteractive
     {
         /// <summary>
@@ -32,7 +31,7 @@ public abstract class Base
         /// <summary>
         /// IBreakable
         /// </summary>
-        int durability{get; set; };
+        int durability{get; set; }
         void Break();
 
     }
@@ -42,7 +41,7 @@ public abstract class Base
         /// <summary>
         /// ICollectable
         /// </summary>
-        bool isCollectable{get; set; };
+        bool isCollectable{get; set; }
         void Collect();
     }
 }
