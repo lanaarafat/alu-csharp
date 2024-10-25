@@ -149,7 +149,9 @@ public class Decoration : Base, IInteractive, IBreakable
         }
     }
 }
-
+/// <summary>
+/// key
+/// </summary>
 public class Key : Base, ICollectable
 {
     /// <summary>
