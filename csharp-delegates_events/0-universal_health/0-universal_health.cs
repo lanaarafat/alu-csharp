@@ -4,7 +4,7 @@ using System;
 public class Player
 {
     /// <summary>This is name string variable.</summary>
-    public string name;
+    public string ? name;
 
     /// <summary>This is maxHP float variable.</summary>
     public float maxHp;
@@ -33,6 +33,6 @@ public class Player
     /// <summary>This is PrintHealth Method.</summary>
     public void PrintHealth()
     {
-        Console.WriteLine($"{name} has {hp} / {maxHp} health");
+        Console.WriteLine($"{name} has {hp} / {maxHp} health.Name");
     }
 }
