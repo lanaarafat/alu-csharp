@@ -214,14 +214,5 @@ public class Objs<T> : IEnumerable<T>
     {
         return objects.GetEnumerator();
     }
-
-    /// <summary>
-    /// get
-    /// </summary>
-    /// <returns></returns>
-    IEnumerator IEnumerable.GetEnumerator()
-    {
-        return this.GetEnumerator();
-    }
 }
 
