@@ -95,49 +95,44 @@ public class Decoration : Base, IInteractive, IBreakable
     public bool isQuestItem;
 
     /// <summary>This is Interact.</summary>
-    public Decoration(string name = "Decoration", int durability = 1, bool isQuestItem = false)
-    {
-        if (durability <= 0)
-        {
-            throw new Exception("Durability must be greater than 0");
-        }
-
+        public Decoration(string name = "Decoration", int durability = 1, bool isQuestItem = false) {
         this.name = name;
-        this.durability = durability;
+        if (durability <= 0) {
+            throw new Exception("Durability must be greater than 0");
+        } else {
+            this.durability = durability;
+        }
         this.isQuestItem = isQuestItem;
     }
-    public void Interact()
-    {
-        if (durablility <= 0)
-        {
-            Console.WriteLine($"The {name} has been broken.");
-        }
-        else if (isQuestion == true)
-        {
-            Console.WriteLine($"You look at the {name}. There's a key inside");
 
-        }
-        else (isQuestion == false)
-        {
-            console.WriteLine($"You look at the {name}. Not much to see here.");
+    /// <summary>
+    /// Interact implementation
+    /// </summary>
+
+    public void Interact() {
+        if (durability <= 0) {
+            Console.WriteLine($"The {name} has been broken.");
+        } else {
+            if (isQuestItem) {
+            Console.WriteLine($"You look at the {name}. There's a key inside.");
+            } 
+            else {
+            Console.WriteLine($"You look at the {name}. Not much to see here.");
+            }
         }
     }
 
-    public void Break()
-    {
+    /// <summary>
+    /// Break implementation
+    /// </summary>
+    public void Break() {
         durability--;
-        if (durablility > 0)
-        {
-            Console.WriteLine($"You hit the {name}. It cracks.")
-        }
-        else if (durability == 0)
-        {
+        if (durability > 0) {
+            Console.WriteLine($"You hit the {name}. It cracks.");
+        } else if (durability == 0) {
             Console.WriteLine($"You smash the {name}. What a mess.");
-
-        }
-        else (durability < 0)
-        {
-            console.WriteLine($"The {name} is already broken.")
+        } else {
+            Console.WriteLine($"The {name} is already broken.");
         }
     }
 }
