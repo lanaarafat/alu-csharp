@@ -211,11 +211,6 @@ public class RoomObjects
                 breakableObj.Break();
             }
 
-            else if (type == typeof(IBreakable) && element is IBreakable breakableObj)
-            {
-                breakableObjObj.Break();
-            }
-
             else if (type == typeof(ICollectable) && element is ICollectable collectableObj)
             {
                 collectableObj.Collect();
