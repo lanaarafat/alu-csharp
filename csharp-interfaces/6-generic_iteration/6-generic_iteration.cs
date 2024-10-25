@@ -202,7 +202,7 @@ public class Objs<T> : IEnumerable<T>
     /// <param name="obj"></param>
     public void Add(T obj)
     {
-        objects.Add(obj);
+        _objects.Add(obj);
     }
 
     /// <summary>
@@ -212,7 +212,15 @@ public class Objs<T> : IEnumerable<T>
 
     public IEnumerator<T> GetEnumerator()
     {
-        return objects.GetEnumerator();
+        return _objects.GetEnumerator();
+    }
+    /// <summary>
+    /// enumerator
+    /// </summary>
+    /// <returns></returns>
+    IEnumerator IEnumerable.GetEnumerator()
+    {
+        return this.GetEnumerator();
     }
 }
 
