@@ -42,7 +42,7 @@ public abstract class Base
         /// <summary>
         /// ICollectable
         /// </summary>
-        bool isCollectable { get; set; };
+        bool isCollectable { get; set; }
         void Collect();
     }
 }
