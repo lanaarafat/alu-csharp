@@ -89,13 +89,24 @@ public class Door : Base, IInteractive
 
 public class Decoration : Base, IInteractive, IBreakable
 {
-    /// <summary>This is Interact.</summary>
+    /// <summary>
+    /// durability
+    /// </summary>
     public int durability{ get; set; }
-    /// <summary>This is Interact.</summary>
+    /// <summary>
+    /// isQuestion
+    /// </summary>
     public bool isQuestItem;
 
-    /// <summary>This is Interact.</summary>
-        public Decoration(string name = "Decoration", int durability = 1, bool isQuestItem = false) {
+    /// <summary>
+    /// decoration
+    /// </summary>
+    /// <param name="name"></param>
+    /// <param name="durability"></param>
+    /// <param name="isQuestItem"></param>
+    /// <exception cref="Exception"></exception>
+    public Decoration(string name = "Decoration", int durability = 1, bool isQuestItem = false)
+    {
         this.name = name;
         if (durability <= 0) {
             throw new Exception("Durability must be greater than 0");
