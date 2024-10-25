@@ -4,13 +4,13 @@ using System;
 public class Player
 {
     /// <summary>This is name string variable.</summary>
-    public string name;
+    public string ? name;
 
     /// <summary>This is maxHP float variable.</summary>
-    public float maxHp;
+    public float ? maxHp;
 
     /// <summary>This is hp float variable.</summary>
-    public float hp;
+    public float ? hp;
 
     /// <summary>This is Player constructor.</summary>
     public Player(string name = "Player", float maxHp = 100f)
