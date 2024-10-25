@@ -1,117 +1,106 @@
-using System;
-using System.Collections
-using System.Collections.Generic;
 using System.Dynamic;
-
+using System.Collections.Generic;
+using System.Collections;
 /// <summary>
-/// Base abstract class.
+/// Base Class
 /// </summary>
-public abstract class Base
-{
+public abstract class Base {
     /// <summary>
-    /// Name of the object.
+    /// The public property name
     /// </summary>
-    public string? name { get; set; }
+    public string ? name {get; set;}
 
     /// <summary>
-    /// Provides a string representation of the object.
+    /// Override for the ToString()
     /// </summary>
-    /// <returns>String in the format: "name is a [type]"</returns>
+    /// <returns></returns>
     public override string ToString()
     {
         return $"{name} is a {this.GetType().Name}";
     }
 }
-
 /// <summary>
-/// IInteractive interface.
+/// IInterface for interactivity
 /// </summary>
-public interface IInteractive
-{
+
+public interface IInteractive {
     /// <summary>
-    /// Interact with the object.
+    /// Method to Interact
     /// </summary>
     void Interact();
 }
 
 /// <summary>
-/// IBreakable interface.
+/// IBreakable interface for durability
 /// </summary>
-public interface IBreakable
-{
+
+public interface IBreakable {
     /// <summary>
-    /// Gets or sets the durability of the object.
+    /// Public property durability
     /// </summary>
-    int durability { get; set; }
+    public int durability {get; set;}
 
     /// <summary>
-    /// Break the object.
+    /// Break method 
     /// </summary>
     void Break();
 }
 
 /// <summary>
-/// ICollectable interface.
+/// ICollectable Interface
 /// </summary>
-public interface ICollectable
-{
+public interface ICollectable {
     /// <summary>
-    /// Gets or sets whether the object is collected.
+    /// Bool property isCollected
     /// </summary>
-    bool isCollected { get; set; }
+    bool isCollected {get; set;}
 
     /// <summary>
-    /// Collect the object.
+    /// Collect method
     /// </summary>
-    void Collect();
+    void Collect() {
+
+    }
 }
 
 /// <summary>
-/// Represents a Door that can be interacted with.
+/// The Door Class
 /// </summary>
-public class Door : Base, IInteractive
-{
+public class Door : Base, IInteractive {
     /// <summary>
-    /// Initializes a new instance of the Door class.
+    /// Constructor
     /// </summary>
-    /// <param name="name">The name of the door.</param>
-    public Door(string name = "Door")
-    {
+    public Door(string name = "Door") {
         this.name = name;
     }
 
     /// <summary>
-    /// Interacts with the Door, attempting to open it.
+    /// Interact implementation
     /// </summary>
-    public void Interact()
-    {
+    public void Interact() {
         Console.WriteLine($"You try to open the {name}. It's locked.");
     }
 }
 
 /// <summary>
-/// Decoration
+/// Decoration Class
 /// </summary>
-public class Decoration : Base, IInteractive, IBreakable
-{
+public class Decoration : Base, IInteractive, IBreakable {
+
     /// <summary>
-    /// durability
-    /// </summary>
-    public int durability{ get; set; }
-    /// <summary>
-    /// isQuestion
+    /// Public Bool isQuestItem
     /// </summary>
     public bool isQuestItem;
 
     /// <summary>
-    /// decoration
+    /// Durability implememntation
     /// </summary>
-    /// <param name="name"></param>
-    /// <param name="durability"></param>
-    /// <param name="isQuestItem"></param>
-    /// <exception cref="Exception"></exception>
-    public Decoration(string name = "Decoration", int durability = 1, bool isQuestItem = false)
-    {
+    public int durability {get; set;}
+
+    /// <summary>
+    /// Decoration Constructor
+    /// </summary>
+    public Decoration(string name = "Decoration", int durability = 1, bool isQuestItem = false) {
         this.name = name;
         if (durability <= 0) {
             throw new Exception("Durability must be greater than 0");
@@ -152,77 +141,67 @@ public class Decoration : Base, IInteractive, IBreakable
         }
     }
 }
-/// <summary>
-/// key
-/// </summary>
-public class Key : Base, ICollectable
-{
-    /// <summary>
-    /// Indicates whether the key has been collected.
-    /// </summary>
-    public bool isCollected { get; set; }
 
+/// <summary>
+/// The Key class
+/// </summary>
+public class Key: Base, ICollectable {
     /// <summary>
-    /// Initializes a new instance of the Key class.
+    /// IsCollected implementation
     /// </summary>
-    /// <param name="name">The name of the key.</param>
-    /// <param name="isCollected">Indicates whether the key is collected.</param>
-    public Key(string name = "Key", bool isCollected = false)
-    {
+    public bool isCollected {get; set;}
+    /// <summary>
+    /// Public Constructor
+    /// </summary>
+    public Key(string name = "Key", bool isCollected = false) {
         this.name = name;
         this.isCollected = isCollected;
     }
-
     /// <summary>
-    /// Collects the key if it hasn't been collected yet.
+    /// Collect Implementation
     /// </summary>
-    public void Collect()
-    {
-        if (!isCollected)
-        {
+    public void Collect() {
+        if (isCollected) {
+            Console.WriteLine($"You have already picked up the {name}.");
+        } else {
             isCollected = true;
             Console.WriteLine($"You pick up the {name}.");
         }
-        else
-        {
-            Console.WriteLine($"You have already picked up the {name}.");
-        }
     }
+
 }
+
 /// <summary>
-/// Generic class that creates a collection of type T objects.
+/// Generic Objs class
 /// </summary>
-public class Objs<T> : IEnumerable<T>
-{
-    // objects list
-    private List<T> objects = new List<T>();
-
+/// <typeparam name="T"></typeparam>
+public class Objs<T> : IEnumerable<T> {
+    // List to store objects
+    private List<T> _items = new List<T>();
     /// <summary>
-    /// add
+    /// Public add to add items
     /// </summary>
-    /// <param name="obj"></param>
-    public void Add(T obj)
-    {
-        objects.Add(obj);
+    /// <param name="item"></param>
+    public void Add(T item) {
+        _items.Add(item);
     }
-
     /// <summary>
-    /// IEnumerator
+    /// Implements GetEnumerator which supports iteration
     /// </summary>
     /// <returns></returns>
 
-    public IEnumerator<T> GetEnumerator()
-    {
-        return objects.GetEnumerator();
+    public IEnumerator<T> GetEnumerator() {
+        return _items.GetEnumerator();
     }
 
     /// <summary>
-    /// IEnumerator
+    /// Non generic IEnumirator for backward compatibility
     /// </summary>
     /// <returns></returns>
 
-    IEnumerator IEnumerable.GetEnumerator()
-    {
+    IEnumerator IEnumerable.GetEnumerator() {
         return this.GetEnumerator();
     }
+
+
 }
