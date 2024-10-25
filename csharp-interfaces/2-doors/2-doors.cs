@@ -64,15 +64,14 @@ public interface ICollectable
 }
 
 /// <summary>
-/// TestObject class inheriting from Base and implementing IInteractive, IBreakable, and ICollectable.
+/// Represents a Door that can be interacted with.
 /// </summary>
-
 public class Door : Base, IInteractive
 {
     /// <summary>
-    /// class Door
+    /// Initializes a new instance of the Door class.
     /// </summary>
-    /// <param name="name"></param>
+    /// <param name="name">The name of the door.</param>
     public Door(string name = "Door")
     {
         this.name = name;
@@ -83,7 +82,6 @@ public class Door : Base, IInteractive
     /// </summary>
     public void Interact()
     {
-        /// <summary>ToString</summary>
         Console.WriteLine($"You try to open the {name}. It's locked.");
     }
 }
