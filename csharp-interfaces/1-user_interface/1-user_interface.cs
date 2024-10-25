@@ -46,32 +46,41 @@ public abstract class Base
     }
 }
 
-public class TestObject : Base, IInteractive, IBreakable, ICollectable
-{
-    /// <summary>Interact</summary>
-    public int durability
-    [
+public class TestObject : Base, IInteractive, IBreakable, ICollectable {
+    /// <summary>
+    /// Interact implementation
+    /// </summary>
+    public void Interact() {
+
+    }
+
+    /// <summary>
+    /// Interact implementation
+    /// </summary>
+    public void Break() {
+
+    }
+
+    /// <summary>
+    /// Durability implementation
+    /// </summary>
+    public int durability {
         get {return durability;}
         set {durability = value;}
-    ]
-    /// <summary>Interact</summary>
-    public bool isCollectable
-    [
+    }
+
+    /// <summary>
+    /// Collect implementation
+    /// </summary>
+    public void Collect() {
+
+    }
+
+    /// <summary>
+    /// Collect Implementation
+    /// </summary>
+    public bool isCollected {
         get {return isCollected;}
         set {isCollected = value;}
-    ]
-    public void Interact()
-    {
-        
-    }
-
-    public void Break()
-    {
-
-    }
-
-    public void Collect()
-    {
-
     }
 }
